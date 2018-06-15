@@ -1,0 +1,63 @@
+package jp.co.axiz.web.entity;
+
+
+import java.io.Serializable;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope(value= "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
+public class SessionInfo implements Serializable {
+	private static final long serialVersionUID = 6334063099671792256L;
+
+	private Admin loginUser;
+
+	private User newUser;
+
+	private User prevUser;
+
+	private User afterUser;
+
+	public Admin getLoginUser() {
+		return loginUser;
+	}
+
+	public void setLoginUser(Admin _loginUser) {
+		loginUser = _loginUser;
+	}
+
+	public User getNewUser() {
+		return newUser;
+	}
+
+	public void setNewUser(User user) {
+		newUser = user;
+	}
+
+	public User getPrevUser() {
+		return prevUser;
+	}
+
+	public void setPrevUser(User _prevUser) {
+		prevUser = _prevUser;
+	}
+
+	public User getAfterUser() {
+		return afterUser;
+	}
+
+	public void setAfterUser(User _afterUser) {
+		afterUser = _afterUser;
+	}
+
+	public void invalidate() {
+		loginUser = null;
+		newUser = null;
+		prevUser = null;
+		afterUser = null;
+	}
+}
+
+
